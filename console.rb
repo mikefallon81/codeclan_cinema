@@ -4,12 +4,14 @@ require_relative('models/tickets.rb')
 
 require ('pry-byebug')
 
-# customer1 = Customer.new({'name' => 'Michael', 'funds' => '75'})
-# customer1.save
+customer1 = Customer.new({'name' => 'Michael', 'funds' => '75'})
+customer1.save
 
 film1 = Film.new({'title' => 'Spiderman', 'price' => '7.50'})
 film1.save
 
+ticket1 = Ticket.new({'cust_id' => customer1.id, 'film_id' => film1.id})
+ticket1.save
 
 
 binding.pry
