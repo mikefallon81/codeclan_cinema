@@ -21,6 +21,13 @@ def save()
   @id = films['id'].to_i
 end
 
+def self.all()
+  sql = "SELECT * FROM films"
+  films = SqlRunner.run(sql)
+  result = films.map{|film| Film.new(film)}
+  return result
+end
+
 def self.delete_all()
   sql = "DELETE FROM films"
   values = []
