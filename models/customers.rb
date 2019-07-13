@@ -33,7 +33,7 @@ def delete()
   SqlRunner.run(sql, values)
 end
 
-def films_booked()
+def films_booked_cust()
   sql = "SELECT films.* FROM films
         INNER JOIN tickets
         ON tickets.film_id = films.id
@@ -41,7 +41,26 @@ def films_booked()
   values = [@id]
   films = SqlRunner.run(sql, values)
   results = films.map {|film| Film.new(film)}
-  return result
+  return results
+end
+
+# def buy_ticket()
+#     @funds = @funds - film1.price
+#     sql = "UPDATE customers SET funds = $1
+#     WHERE id = $2"
+#     values = [@funds, @id]
+#     SqlRunner.run(sql, values)
+# end
+
+def ticket_count()
+  sql = "SELECT customers.* FROM customers
+  INNER JOIN tickets
+  ON tickets.cust_id = customers.id
+  WHERE cust_id = $1"
+  values = [@id]
+  tickets = SqlRunner.run(sql, values)
+  result = tickets.map {|ticket| Ticket.new (ticket)}
+  return result.size
 end
 
 def self.all()
