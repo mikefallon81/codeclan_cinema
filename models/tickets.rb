@@ -14,6 +14,7 @@ def initialize(options)
   @film_id = options['film_id']
 end
 
+
 def save()
   sql = "INSERT INTO tickets (cust_id, film_id)
         VALUES ($1, $2)
