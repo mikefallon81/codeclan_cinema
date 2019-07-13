@@ -53,14 +53,16 @@ end
 # end
 
 def ticket_count()
-  sql = "SELECT customers.* FROM customers
-  INNER JOIN tickets
-  ON tickets.cust_id = customers.id
-  WHERE cust_id = $1"
-  values = [@id]
-  tickets = SqlRunner.run(sql, values)
-  result = tickets.map {|ticket| Ticket.new (ticket)}
-  return result.size
+  return films_booked_cust.size
+
+  # sql = "SELECT customers.* FROM customers
+  # INNER JOIN tickets
+  # ON tickets.cust_id = customers.id
+  # WHERE cust_id = $1"
+  # values = [@id]
+  # tickets = SqlRunner.run(sql, values)
+  # result = tickets.map {|ticket| Ticket.new (ticket)}
+  # return result.size
 end
 
 def self.all()

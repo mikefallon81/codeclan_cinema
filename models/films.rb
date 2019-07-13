@@ -46,6 +46,11 @@ def cust_booked_for_film()
   return results
 end
 
+  def tickets_sold_for_film
+    return cust_booked_for_film.size
+  end
+
+
 def self.all()
   sql = "SELECT * FROM films;"
   films = SqlRunner.run(sql)
