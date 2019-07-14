@@ -46,6 +46,14 @@ def cust_booked_for_film()
   return results
 end
 
+  def find_film_price
+    sql = "SELECT price FROM films
+    WHERE id = $1;"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    return @price
+  end
+
   def tickets_sold_for_film
     return cust_booked_for_film.size
   end

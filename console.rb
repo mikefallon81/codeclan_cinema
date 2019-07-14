@@ -9,6 +9,8 @@ Film.delete_all
 Customer.delete_all()
 
 
+# Customer.save('Michael', 50)
+
 customer1 = Customer.new({'name' => 'Michael', 'funds' => '75'})
 customer1.save
 customer2 = Customer.new({'name' => 'Paul', 'funds' => '50'})
@@ -19,11 +21,12 @@ customer4 = Customer.new({'name' => 'Joe', 'funds' => '40'})
 customer4.save
 
 
-film1 = Film.new({'title' => 'Spiderman', 'price' => '7.50'})
+
+film1 = Film.new({'title' => 'Spiderman', 'price' => 7})
 film1.save
-film2 = Film.new({'title' => 'Deadpool 2', 'price' => '7.50'})
+film2 = Film.new({'title' => 'Deadpool 2', 'price' => 5})
 film2.save
-film3 = Film.new({'title' => 'The Departed', 'price' => '7.50'})
+film3 = Film.new({'title' => 'The Departed', 'price' => 8})
 film3.save
 
 ticket1 = Ticket.new({'cust_id' => customer1.id, 'film_id' => film1.id})
